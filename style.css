@@ -11,6 +11,7 @@
 body {
     background-color:rgba(107, 25, 128, 0.603);
 }
+
 h1 {
     text-align: center;
     padding: 20px;
@@ -79,7 +80,6 @@ button:focus {
 button:visited {
     background: greenyellow;
 }
-
 
 #black {
     background-color: black;
