@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Open+Sans&display=swap');
+
 :root {
     --some-color: red;
 }
@@ -10,34 +12,73 @@
 
 body {
     background-color:rgba(107, 25, 128, 0.603);
+    font-family: 'Freckle Face', cursive;
 }
 
 h1 {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0 50px;
     font-size: 60px;
+    text-shadow: 2px 2px darkblue;
+}
+
+h2 {
+    text-align: center;
+    padding: 5px 10px 20px;
+    font-size: 50px;
     text-shadow: 2px 2px darkblue;
 }
 
 .format {
     display: flex;
-    max-width: 900px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto 100px;
     flex-direction: row;
 }
 
-.instructions {
-    width: 200px;
+.inst {
+    max-width: 350px;
     display: flex;
     flex-direction: column;
+    border: 2px dashed rgb(36, 3, 36);
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #8c6597be; 
+}
+
+ul {
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
+}
+
+.instructions {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: rgba(26, 26, 156, 0.692);
 }
 
 .container {
-    width: 600px;
-    height: 600px;
-    margin: 20px auto;
+    width: 700px;
+    height: 700px;
+    padding: 10px;
+    margin: 15px auto;
+    background-color: rgba(255, 255, 255, 1);
     display: grid;
-    border: 1px solid black;
+    border: 10px solid white;
+    border-radius: 30px;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
 }
@@ -59,11 +100,12 @@ h1 {
 }
 
 button {
-    margin: 40px 20px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 15px 20px;
     font-size: 20px;
     padding: 10px;
-    background: green;
-    border-radius: 0.25rem;
+    background: #8c6597be;
+    border-radius: 15px;
     border: 2px solid black;
     color: black;
     box-shadow: 2px 2px 2px rgb(36, 3, 36);
@@ -82,7 +124,7 @@ button:visited {
 }
 
 #black {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 #rgb {

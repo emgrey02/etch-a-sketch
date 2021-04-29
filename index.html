@@ -6,26 +6,31 @@
     </head>
     <body>
         <h1>ETCH-A-SKETCH</h1>
-        <div class="buttons">
-            <button class='black'>Black</button>
-            <button class='rgb'>RGB</button>
-            <button class='greyscale'>Greyscale</button>
-            <button class='eraser'>Eraser</button>
-        </div>
         <div class="format">
             <div class="instructions">
-                <h2>Instructions</h2>
-                <ul>
-                    <li>Click and drag your mouse within the grid to draw.</li>
-                    <li>Change the grid size by pressing the <b>Grid Size</b> button. </li>
-                    <li>Etch and sketch to your heart's desire!</li>
-                </ul>
+                <div class="inst">
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li>Click and drag your mouse within the grid to draw.</li>
+                        <li>Change the pixel size by pressing the <b>Grid Size</b> button.</li>
+                        <li>Choose a drawing mode by pressing one of the buttons on the Etch-a-sketch. Try them all out!</li>
+                        <li>Etch and sketch to your heart's desire!</li>
+                    </ul>
+                </div>
                 <div class="more-buttons">
                     <button class='grid'>Grid Size</button>
                     <button class='clear'>Clear Grid</button>
                 </div>
             </div>
-            <div class="container"></div>
+            <div class="background">
+                <div class="container"></div>
+                <div class="buttons">
+                    <button class='black'>Black</button>
+                    <button class='rgb'>Random Colors</button>
+                    <button class='greyscale'>Incrementally Darken</button>
+                    <button class='eraser'>Eraser</button>
+                </div>
+            </div>
         </div>
         <script src="script.js"></script>
     </body>

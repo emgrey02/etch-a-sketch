@@ -42,16 +42,31 @@ let getRgb = () => {
     let r = Math.floor((Math.random()) * 255);
     let g = Math.floor((Math.random()) * 255);
     let b = Math.floor((Math.random()) * 255);
+    let a = 1;
 
-    return (`(${r}, ${g}, ${b})`);
+    return (`rgba(${r}, ${g}, ${b}, ${a})`);
 }
 
-let getGreyscale = () => {
-    let r = 0;
-    let g = 0;
-    let b = 0;
+let getGreyscale = (rgba) => {
+    const chop = rgba.slice(5, -1);
+    const array = chop.split(', ');
+    console.log(array);
+    let [r,g,b,a] = array;
 
-    return (`(${r}, ${g}, ${b})`);
+    a = Number(a);
+    r = Number(r);
+    g = Number(g);
+    b = Number(b);
+    
+    if (a < 1) {
+        a += 0.1;
+        return (`rgba(${r}, ${g}, ${b}, ${a}`);
+    } else {
+        r *= 0.8;
+        g *= 0.8;
+        b *= 0.8;
+        return (`rgba(${r}, ${g}, ${b}, ${a}`);
+    }
 }
 
 let setColorScheme = (event) => {
@@ -74,26 +89,26 @@ let changeColor = (event) => {
     } else if (color === 'rgb') {
         let randomColor = getRgb();
         event.target.setAttribute('id', 'rgb');
-        event.target.style.setProperty('--some-color', `rgb${randomColor}`);   
+        event.target.style.setProperty('--some-color', `${randomColor}`);   
     } else if (color === 'greyscale') {
-        if (event.target.id === 'greyscale') {
             const style = getComputedStyle(event.target);
             const backgroundColor = style.backgroundColor;
-            const currentOpacity = Number(backgroundColor.slice(-4, -1));
-            if (currentOpacity < 1) {
-                a = currentOpacity;
-                a += 0.1;
-            } else {
-                a = 1;
+            let currentRgb = backgroundColor;
+            if (currentRgb.indexOf('a') === -1) {
+                currentRgb = currentRgb.slice(3, -1);
+                currentRgb = 'rgba' + currentRgb + ', 1)';
             }
-        } else {
-            a = 0.1;
-        }
-        event.target.setAttribute('id', 'greyscale');
-        event.target.style.setProperty('--some-color', `rgb(0,0,0,${a})`);
+            console.log('before: ' + currentRgb);
+            const newRgb = getGreyscale(currentRgb);
+            console.log('after: ' + newRgb);
+
+            event.target.setAttribute('id', 'greyscale');
+            event.target.style.setProperty('--some-color', `${newRgb}`);
+
     } else if (color === 'eraser') {
         event.target.setAttribute('id', 'eraser');
     }
+
 }
 
 let clearGrid = (gridSize) => {
@@ -107,7 +122,7 @@ let clearGrid = (gridSize) => {
 
 let getGridSize = () => {
     clearGrid(gridSize);
-    gridSize = prompt("Choose a grid size: ");
+    gridSize = prompt("Choose a grid size: (max: 100)");
     gridSize = Number(gridSize);
     
     while (gridSize > 100) {
