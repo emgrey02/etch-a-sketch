@@ -99,29 +99,32 @@ ul {
     margin: 10px;
 }
 
-button {
+  button {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    background-color: none;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, background-color;
+    transition-property: box-shadow, background-color;
+
     font-family: 'Open Sans', sans-serif;
     margin: 0 15px 20px;
     font-size: 20px;
     padding: 10px;
     background: #8c6597be;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 1px rgba(58, 5, 58, 0.541) solid;
     color: black;
-    box-shadow: 2px 2px 2px rgb(36, 3, 36);
-}
+  }
 
-button:hover {
-    box-shadow: none;
-}
-
-button:focus {
-    background: greenyellow;
-}
-
-button:visited {
-    background: greenyellow;
-}
+  button:hover, button:focus, button:active {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    background-color:rgba(107, 134, 224, 0.664);
+  }
 
 #black {
     background-color: rgba(0, 0, 0, 1);
